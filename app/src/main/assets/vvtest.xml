@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<VHLayout
+    action="${action}"
+    background="${bgColor}"
+    flag="flag_exposure|flag_clickable"
+    layoutHeight="wrap_content"
+    layoutWidth="match_parent"
+    orientation="V">
+
+    <VImage
+        layoutGravity="h_center"
+        layoutHeight="72rp"
+        layoutMarginTop="10rp"
+        layoutWidth="72rp"
+        src="${imageUrl}"/>
+
+    <NText
+        layoutGravity="h_center"
+        layoutHeight="wrap_content"
+        layoutMarginBottom="10rp"
+        layoutMarginTop="10rp"
+        layoutWidth="wrap_content"
+        text="${text}"/>
+</VHLayout>
