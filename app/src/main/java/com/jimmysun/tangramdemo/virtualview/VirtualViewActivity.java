@@ -40,25 +40,29 @@ public class VirtualViewActivity extends AppCompatActivity {
         vafContext.setImageLoaderAdapter(new ImageLoader.IImageLoaderAdapter() {
             @Override
             public void bindImage(String uri, ImageBase imageBase, int reqWidth, int reqHeight) {
-                RequestBuilder requestBuilder =
-                        Glide.with(VirtualViewActivity.this).asBitmap().load(uri);
-                if (reqWidth > 0 || reqHeight > 0) {
-                    requestBuilder.submit(reqWidth, reqHeight);
+                if (Utils.isValidContextForGlide(VirtualViewActivity.this)) {
+                    RequestBuilder requestBuilder =
+                            Glide.with(VirtualViewActivity.this).asBitmap().load(uri);
+                    if (reqWidth > 0 || reqHeight > 0) {
+                        requestBuilder.submit(reqWidth, reqHeight);
+                    }
+                    ImageTarget imageTarget = new ImageTarget(imageBase);
+                    requestBuilder.into(imageTarget);
                 }
-                ImageTarget imageTarget = new ImageTarget(imageBase);
-                requestBuilder.into(imageTarget);
             }
 
             @Override
             public void getBitmap(String uri, int reqWidth, int reqHeight,
                                   ImageLoader.Listener lis) {
-                RequestBuilder requestBuilder =
-                        Glide.with(VirtualViewActivity.this).asBitmap().load(uri);
-                if (reqWidth > 0 || reqHeight > 0) {
-                    requestBuilder.submit(reqWidth, reqHeight);
+                if (Utils.isValidContextForGlide(VirtualViewActivity.this)) {
+                    RequestBuilder requestBuilder =
+                            Glide.with(VirtualViewActivity.this).asBitmap().load(uri);
+                    if (reqWidth > 0 || reqHeight > 0) {
+                        requestBuilder.submit(reqWidth, reqHeight);
+                    }
+                    ImageTarget imageTarget = new ImageTarget(lis);
+                    requestBuilder.into(imageTarget);
                 }
-                ImageTarget imageTarget = new ImageTarget(lis);
-                requestBuilder.into(imageTarget);
             }
         });
         ViewManager viewManager = vafContext.getViewManager();
@@ -66,6 +70,7 @@ public class VirtualViewActivity extends AppCompatActivity {
 //        viewManager.loadBinBufferSync(VVTEST.BIN);
 //        viewManager.loadBinFileSync("file:///android_asset/VVTest.out");
         viewManager.loadBinBufferSync(Utils.getAssetsFile(this, "VVTest.out"));
+        viewManager.loadBinBufferSync(Utils.getAssetsFile(this, "ViewPager.out"));
         vafContext.getEventManager().register(EventManager.TYPE_Click, new IEventProcessor() {
             @Override
             public boolean process(EventData data) {
@@ -80,10 +85,19 @@ public class VirtualViewActivity extends AppCompatActivity {
                 return true;
             }
         });
+        // VVTest
         View container = vafContext.getContainerService().getContainer("VVTest", true);
         mLinearLayout.addView(container);
         IContainer iContainer = (IContainer) container;
         JSONObject jsonObject = Utils.getJSONDataFromAsset(this, "vvtest.json");
+        if (jsonObject != null) {
+            iContainer.getVirtualView().setVData(jsonObject);
+        }
+        // ViewPager
+        container = vafContext.getContainerService().getContainer("ViewPager", true);
+        mLinearLayout.addView(container);
+        iContainer = (IContainer) container;
+        jsonObject = Utils.getJSONDataFromAsset(this, "view_pager.json");
         if (jsonObject != null) {
             iContainer.getVirtualView().setVData(jsonObject);
         }

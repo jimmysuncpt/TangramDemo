@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "type": "VVTest",
+      "bgColor": "#FF0000",
+      "imageUrl": "https://gw.alicdn.com/tfs/TB1vqF.PpXXXXaRaXXXXXXXXXXX-110-72.png",
+      "text": "Page测试1",
+      "action": "您点击了Page1"
+    },
+    {
+      "type": "VVTest",
+      "bgColor": "yellow",
+      "imageUrl": "https://gw.alicdn.com/tfs/TB1vqF.PpXXXXaRaXXXXXXXXXXX-110-72.png",
+      "text": "Page测试2",
+      "action": "您点击了Page2"
+    },
+    {
+      "type": "VVTest",
+      "bgColor": "#00FF00",
+      "imageUrl": "https://gw.alicdn.com/tfs/TB1vqF.PpXXXXaRaXXXXXXXXXXX-110-72.png",
+      "text": "Page测试3",
+      "action": "您点击了Page3"
+    }
+  ]
+}
