@@ -7,6 +7,6 @@
 
 [Android动态界面开发框架VirtualView之数据绑定](https://blog.csdn.net/u013541140/article/details/90488516)
 ## 截图
-![截图](images/Tangram%E5%B8%83%E5%B1%80.gif)
-<img src="images/screenshot.png" width="55%" height="55%"/>
-<img src="images/VirtualView-Page.gif" width="55%" height="55%"/>
+<img src="images/Tangram%E5%B8%83%E5%B1%80.gif" width="40%" height="40%"/>
+<img src="images/screenshot.png" width="40%" height="40%"/>
+<img src="images/VirtualView-Page.gif" width="40%" height="40%"/>
