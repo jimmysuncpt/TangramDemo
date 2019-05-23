@@ -16,15 +16,18 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".tangram.TangramActivity"
+            android:label="Tangram示例"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".virtualview.VirtualViewActivity"
+            android:label="VirtualView示例"
             android:screenOrientation="portrait"/>
     </application>
 
