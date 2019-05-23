@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    autoSwitch="true"
+    canSlide="true"
+    dataTag="${data}"
+    layoutHeight="wrap_content"
+    layoutWidth="match_parent"
+    orientation="H"
+    stayTime="2000"/>
